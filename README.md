@@ -63,8 +63,7 @@ python build_dataset/generate_silence.py \
   --sampling_rate 16000 \
   --duration 5
 ```
-- FSD50K
-Download from `https://zenodo.org/records/4060432`
+- [FSD50K](https://zenodo.org/records/4060432)
 
 
 ## Inference
