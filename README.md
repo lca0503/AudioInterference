@@ -2,7 +2,7 @@
 
 # When Silence Matters: The Impact of Irrelevant Audio on Text Reasoning in Large Audio-Language Models
 
-<p align="center">
+</div>
 
 ### Overview
 - **Goal**: Assess how irrelevant audio interferes with textual reasoning across audio-language models.
