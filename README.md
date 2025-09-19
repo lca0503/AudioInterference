@@ -80,7 +80,7 @@ Examples:
 - Qwen2.5-Omni (via vLLM)
 ```bash
 python inference_qwen25omni.py \
-  --task_id audio_interference_arc_challenge \
+  --task_id lca0503/audio_interference_arc_challenge \
   --task_split silence \
   --task_type text_bench_interference \
   --model_id Qwen/Qwen2.5-Omni-7B \
@@ -91,7 +91,7 @@ python inference_qwen25omni.py \
 - Phi-4-multimodal-instruct (via vLLM + LoRA)
 ```bash
 python inference_phi4mm.py \
-  --task_id audio_interference_gsm8k \
+  --task_id lca0503/audio_interference_gsm8k \
   --task_split noise \
   --task_type text_bench_interference \
   --model_id microsoft/Phi-4-multimodal-instruct \
@@ -102,7 +102,7 @@ python inference_phi4mm.py \
 - Voxtral (Mistral-format via vLLM)
 ```bash
 python inference_voxtral.py \
-  --task_id audio_interference_mmlu \
+  --task_id lca0503/audio_interference_mmlu \
   --task_split fsd \
   --task_type text_bench_interference \
   --model_id mistralai/Voxtral-Mini-3B-2507 \
@@ -112,7 +112,7 @@ python inference_voxtral.py \
 - DeSTA2.5 (via Transformers and [DeSTA2.5-Audio](https://github.com/kehanlu/DeSTA2.5-Audio))
 ```bash
 python inference_desta.py \
-  --task_id audio_interference_mmlu \
+  --task_id lca0503/audio_interference_mmlu \
   --task_split fsd \
   --task_type text_bench_interference \
   --model_id DeSTA-ntu/DeSTA2.5-Audio-Llama-3.1-8B \
