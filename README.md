@@ -4,7 +4,7 @@
 
 </div>
 
-### Overview
+## Overview
 - **Goal**: Assess how irrelevant audio interferes with textual reasoning across audio-language models.
 - **Benchmarks**: GSM8K, MMLU, ARC-Challenge.
 - **Settings**:
@@ -12,12 +12,12 @@
   - **text_bench_interference**: text + irrelevant audio
 
 Public datasets used in the paper are on the Hugging Face Hub:
-- GSM8K (interference): `https://huggingface.co/datasets/lca0503/audio_interference_gsm8k`
-- MMLU (interference): `https://huggingface.co/datasets/lca0503/audio_interference_mmlu`
-- ARC-Challenge (interference): `https://huggingface.co/datasets/lca0503/audio_interference_arc_challenge`
+- [GSM8K (interference)](https://huggingface.co/datasets/lca0503/audio_interference_gsm8k)
+- [MMLU (interference)](https://huggingface.co/datasets/lca0503/audio_interference_mmlu)
+- [ARC-Challenge (interference)](https://huggingface.co/datasets/lca0503/audio_interference_arc_challenge)
 
 
-### Setup
+## Setup
 1) Clone and enter repo
 ```bash
 git clone https://github.com/lca0503/AudioInterference.git
@@ -29,28 +29,18 @@ pip install -r requirements.txt
 ```
 
 
-### Build datasets (ptional)
+## Build datasets (optional)
 You can construct the interference datasets by pairing each test question with a random audio file (.wav). Provide a folder of audio files and a target Hub repo name.
 
-- GSM8K
+Example:
 ```bash
 python build_dataset/gsm8k.py \
   --audio_path /path/to/wavs \
   --repo_name your-username/audio_interference_gsm8k \
   --seed 0
-```
-- MMLU
-```bash
 python build_dataset/mmlu.py \
   --audio_path /path/to/wavs \
   --repo_name your-username/audio_interference_mmlu \
-  --seed 0
-```
-- ARC-Challenge
-```bash
-python build_dataset/arc_challenge.py \
-  --audio_path /path/to/wavs \
-  --repo_name your-username/audio_interference_arc_challenge \
   --seed 0
 ```
 
@@ -77,7 +67,7 @@ python build_dataset/generate_silence.py \
 Download from `https://zenodo.org/records/4060432`
 
 
-### Inference
+## Inference
 Common arguments
 - **--task_id**: one of `audio_interference_gsm8k`, `audio_interference_mmlu`, `audio_interference_arc_challenge`
 - **--task_split**: one of `silence`, `noise`, `fsd`, etc. 
@@ -120,7 +110,7 @@ python inference_voxtral.py \
   --output_path outputs/voxtralmini/fsd_mmlu.jsonl \
   --seed 0
 ```
-- DeSTA2.5 (via Transformers and `https://github.com/kehanlu/DeSTA2.5-Audio`)
+- DeSTA2.5 (via Transformers and [DeSTA2.5-Audio](https://github.com/kehanlu/DeSTA2.5-Audio))
 ```bash
 python inference_desta.py \
   --task_id audio_interference_mmlu \
@@ -136,8 +126,8 @@ Notes
 - For text-only baselines, set `--task_type text_bench`.
 
 
-### Evaluation
-##### Accuracy
+## Evaluation
+#### Accuracy
 Compute accuracy from JSONL results.
 
 Example:
@@ -156,7 +146,7 @@ python evaluate.py --input_path your.jsonl --task_id mmlu --scs
 ```
 When using self-consistency, ensure each sample's `response` in the JSONL is a list of strings.
 
-##### Influence rate (compare vs. text_bench)
+#### Influence rate (compare vs. text_bench)
 Compute inconsistency rate (IR) between an interference run and the corresponding text-only baseline.
 
 ```bash
@@ -176,7 +166,7 @@ python influence_rate.py --input_path interfered.jsonl --target_path text.jsonl 
 ```
 
 
-### Citation
+## Citation
 If you find our code or models helpful, please consider citing our paper using the following BibTeX:
 ```
 TBD
